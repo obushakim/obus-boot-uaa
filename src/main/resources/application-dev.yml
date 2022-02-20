@@ -43,8 +43,3 @@ app:
     redirect-urls: http://localhost:9991/login
     access-token-validity: 3600
     refresh-token-validity: 21600
-
-security:
-  oauth2:
-    resource:
-      filter-order: 3
