@@ -1,5 +1,6 @@
 package com.obus.uaa.user.request;
 
+import java.util.List;
 import java.util.UUID;
 
 import javax.validation.constraints.NotEmpty;
@@ -8,6 +9,7 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.obus.uaa.common.model.base.BaseRequest;
 import com.obus.uaa.common.validator.email.ValidEmail;
+import com.obus.uaa.role.domain.Role;
 
 import lombok.Builder;
 import lombok.Data;
@@ -38,4 +40,6 @@ public class UserRequest extends BaseRequest {
 	
 	@ValidEmail
 	private String email;
+	
+	private List<Role> roleList;
 }
