@@ -1,9 +1,13 @@
 package com.obus.uaa.user.response;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.util.ObjectUtils;
 
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.obus.uaa.common.model.base.BaseResponse;
+import com.obus.uaa.roleuser.response.RoleUserResponse;
 import com.obus.uaa.user.domain.User;
 
 import lombok.AllArgsConstructor;
@@ -27,6 +31,7 @@ public class UserResponse extends BaseResponse {
 	private String password;
 	private String email;
 	private String fullname;
+	private List<RoleUserResponse> roleUserList;
 	
 	public static UserResponse toResponse(User user) {
 		
@@ -44,6 +49,12 @@ public class UserResponse extends BaseResponse {
 			response.setPassword(user.getPassword());
 			response.setEmail(user.getEmail());
 			response.setFullname(user.getFullname());
+			
+			List<RoleUserResponse> roleUserResponseList = user.getRoleUserList().stream().map(roleUser -> {
+				return RoleUserResponse.toResponse(roleUser);				
+			}).collect(Collectors.toList());
+			
+			response.setRoleUserList(roleUserResponseList);
 		}
 		
 		return response;

@@ -36,6 +36,7 @@ public class AccountResource {
 		return ResponseEntity.ok(response);
 	}
 	
+//	using token jwt
 	@PostMapping(value = "/authenticate")
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest request) {
 		String token = null;

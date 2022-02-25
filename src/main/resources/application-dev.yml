@@ -32,7 +32,9 @@ server:
   servlet:
     session:
       timeout: 3600s
-  
+#  context:
+#    path: /api
+    
 app:
   user:
     username: admin
@@ -44,7 +46,7 @@ app:
     access-token-validity: 3600
     refresh-token-validity: 21600
 
-security:
-  oauth2:
-    resource:
-      filter-order: 3
+#security:
+#  oauth2:
+#    resource:
+#      filter-order: 3
